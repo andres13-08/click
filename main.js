@@ -78,6 +78,23 @@ if (rol === 1) { //El simbolo de acá es el que se reemplaza, dependiendo de si 
     }
 }
 
+//Ejemplo Práctico: Imagina que tienes un sitio web de comercio electrónico y necesitas almacenar la información del carrito de compras del usuario entre sesiones. Podrías almacenar esta información en localStorage como un string JSON y recuperarlo cada vez que el usuario visite la página.
+//Supongamos que este es el carrito de compras del usuario
+const carrito = {
+    items: [
+        { id: 1, producto: "Libro", cantidad: 2, precio: 15.00 },
+        { id: 2, producto: "Lápiz", cantidad: 10, precio: 1.50 }
+    ]
+};
+
+// Convertimos el objeto carrito en una cadena JSON y lo almacenamos
+localStorage.setItem('carrito', JSON.stringify(carrito));
+
+// Recuperamos la cadena JSON del almacenamiento y la convertimos de nuevo a un objeto JavaScript
+const carritoAlmacenado = JSON.parse(localStorage.getItem('carrito'));
+
+// Ahora podemos acceder y manipular los datos del carrito como un objeto JavaScript
+console.log(`Total de productos: ${carritoAlmacenado.items.length}`);
 
 
 
@@ -528,3 +545,75 @@ if (rol === 1) { //El simbolo de acá es el que se reemplaza, dependiendo de si 
 //const luis = usuarios.find(usuario => usuario.nombre === "Luis");
 //console.log(luis);
 // Resultado: { nombre: "Luis", edad: 30 }
+
+
+
+
+
+
+
+//CLASE 25 DE SEPTIEMBRE
+class Persona {
+    constructor(nombre, edad, calle) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.calle = calle;
+    }
+
+    describir() {
+        console.log(`Hola me llamo ${this.nombre} y tengo ${this.edad}`);
+        return `Nombre: ${this.nombre}, Edad: ${this.edad}, Calle: ${this.calle}`;
+    }
+}
+
+// Crear un nuevo objeto Persona
+const persona1 = new Persona("Ana", 25, "Calle Falsa 123");
+console.log(persona1.describir());
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+const saludo = document.getElementById("saludo");
+const botonGuardar = document.getElementById("guardarNombre");
+const botonEliminar = document.getElementById("eliminarNombre");
+const botonRecuperar = document.getElementById("recuperarNombre");
+
+if (saludo && botonGuardar && botonEliminar && botonRecuperar) {
+    
+//GUARDAR NOMBRE    
+botonGuardar.addEventListener("click", () => {
+    const nombre = prompt("Ingrese su nombre:");
+        if (nombre) {
+        localStorage.setItem("nombreUsuario", nombre);
+        saludo.textContent = `¡Hola ${nombre}!` 
+    }
+});
+
+//ELIMINAR NOMBRE
+botonEliminar.addEventListener("click", () => {
+    localStorage.removeItem("nombreUsuario");
+    saludo.textContent = `¡Hola!`;
+});
+
+//RECUPERAR NOMBRE
+botonRecuperar.addEventListener("click", () => {
+    const nombreRecuperado = localStorage.getItem("NombreUsuario"); 
+
+    if (nombreRecuperado) {
+        //Si existe el nombre, se saluda
+        saludo.textContent = `¡Bienvenido de vuelta ${nombreRecuperado}!`;
+    } else  {
+        //Si no existe, se notifica al usuario
+                alert("No hay ningún nombre guardado para recuperar.");
+                saludo.textContent = `¡Hola!`;
+            }
+        });
+        
+    } else {
+        console.error("ERROR: No se encontraron los IDs necesarios en el HTML. Verifica 'saludo', 'guardarNombre', 'eliminarNombre' y 'recuperarNombre'.");
+    }
+});
+
+let nombre = "Raul";
+let edad = 40;
+
+localStorage.setItem("nombreDeLaPersona", nombre)

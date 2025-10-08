@@ -1,10 +1,82 @@
-//variable: es un espacio de memoria reservado para almacenar información importante delprograma"
+//Esto es para que en una función, se pueda llamar otra función.
+function mayorQue(n) {
+    return function(m) {
+        return m > n;
+    }
+}
 
-let continuar = confirm("Está a punto de ingresar a mi mundo ¿Estás seguro de aceptar nuestros términos y condiciones?");
+let mayorQueDiez = mayorQue(10);
+
+//console.log(mayorQueDiez(12)); // true
+//console.log(mayorQueDiez(8));  // false
+
+let mayorQueCuarenta = mayorQue(40);
+
+//console.log(mayorQueCuarenta(72)); // true
+//console.log(mayorQueCuarenta(8));  // false
+
+let numbers = [1,2,3,4,5];
+
+const mostrar = (array, funcion) => {
+    for (const elem of array) { //Por cada elemento del array, se ejecutará la "funcion"  
+        funcion(elem);
+    }};
+mostrar(numbers, console.log);
+
+let mayorQueTres = (m) => {
+    let resultado =  m > 3;
+    console.log(resultado); 
+}
+mostrar(numbers, mayorQueTres);
+
+//FOR EACH: En este caso, por cada número se está pidiendo que me lo muestra en consola. La traducción por eso dice "for each" - "por cada uno". Ejemplo, se hace un for each al array de un carro de compras, y por cada produto, se debe mostrar, ejemplo, dentro de una caja. 
+let numbersforeach = [1,2,3,4,5];
+numbersforeach.forEach((num)=>{
+    console.log(num);
+})
+
+//FIND: Para encontrar un producto según nombre, precios, etc. Devuelve el primer elemento que cumpla la condición que le entregue. 
+let productos = [
+    {id:1,nombre: "remera", precio:1000},
+    {id:2,nombre: "pantalón", precio:3000},
+];
+
+//let prodEncontrado = productos.find((prod) => prod.precio > 1500);
+//console.log(prodEncontrado);
+
+
+//FILTER: En vez de devolver un solo producto o elemento, así como o hace find, sino que me va a mostrar todos los eementos que cumplan esa condición. 
+//let prodEncontrados = productos.filter((prod)=>prod.precio > 900);
+//console.log(prodEncontrados);
+
+
+//SOME: Solo devuelve true o false. Solo te dice si existe o no existe un producto.
+//let prodEncontrado = productos.some((prod) => prod.precio > 1000);
+//console.log(prodEncontrado);
+
+
+
+//MAP: Crea un nuevo array con todos los elementos del originL, pero transofrmado. Transdorma el array que le estamos pasando. Esto se peude usar cuando hay productos con recargo, o en el caso de sumarle el IVA. 
+let prodsCantidad = productos.map((prod) => {
+    return {id:prod.id,
+        nombre:prod.nombre,
+        precio:prod.precio,
+        cantidad: 0
+    }
+})
+
+console.log(prodsCantidad);
+
+
+
+//DESDE ACÁ VIENE EL CÓDIGO PARA EL EJERCICIO REAL
+//variable: es un espacio de memoria reservado para almacenar información importante del programa"
+
+let continuar = confirm("Estás a punto de ingresar a mi mundo ¡Acepta los términos y condiciones!");
 console.log(continuar);
 
 if (continuar) {
-    let nombreIngresado = prompt ("Ingrese su nombre completo"); //PROMPT SE USA PARA IMPRIMIR O MOSTRAR UN POP UP CON CIERTO MENSAJE
+    let nombreIngresado = prompt ("Ingresa tu nombre completo"); //PROMPT SE USA PARA IMPRIMIR O MOSTRAR UN POP UP CON CIERTO MENSAJE
     console.log(nombreIngresado);
 
     let rolIngresado = prompt (`Hola ${nombreIngresado}, bienvenid@ a CLICK, tu proveedor de confianza. (1) PROVEEDOR (2) USUARIO`);
@@ -30,13 +102,14 @@ if (rol === 1) { //El simbolo de acá es el que se reemplaza, dependiendo de si 
                 console.log("No le aplica descuento. Sigamos con el proceso");
             }
                 
-                let ServicioOfrecido = prompt (`¿Qué tipo de servicio ofrece? 1. Servicios del hogar 2. Servicios educativos 3. Servicios automoviles`)
+                let ServicioOfrecido = prompt (`¿Qué tipo de servicio ofrece? 1. Servicios del hogar 2. Servicios educativos 3. Servicios automoviles 4. Servicios de compañía"`)
                 console.log(ServicioOfrecido);
                                 
                 let arrayServicios =[];
                 arrayServicios.push({ id:1 , nombre: "Servicios del hogar" });
                 arrayServicios.push({ id:2 , nombre: "Servicios educativos" });
                 arrayServicios.push({ id:3 , nombre: "Servicios automoviles" });
+                arrayServicios.push({ id:4 , nombre: "Servicios de compañía" });
                 console.log(arrayServicios);
 
                 for(let objeto of arrayServicios) {

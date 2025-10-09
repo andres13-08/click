@@ -56,7 +56,7 @@ let productos = [
 
 
 
-//MAP: Crea un nuevo array con todos los elementos del originL, pero transofrmado. Transdorma el array que le estamos pasando. Esto se peude usar cuando hay productos con recargo, o en el caso de sumarle el IVA. 
+//MAP: Crea un nuevo array con todos los elementos del original, pero transofrmado. Transforma el array que le estamos pasando. Esto se puede usar cuando hay productos con recargo por ubicación, o en el caso de sumarle el IVA. 
 let prodsCantidad = productos.map((prod) => {
     return {id:prod.id,
         nombre:prod.nombre,
@@ -66,6 +66,109 @@ let prodsCantidad = productos.map((prod) => {
 })
 
 console.log(prodsCantidad);
+
+
+
+
+//EMPEZAMOS A VER TODO LO DE DOM
+
+
+//1. Métodos de Acceso al DOM
+//1.1. getElementById() Este método es ideal cuando se sabe con certeza que el elemento tiene un id único y se necesita acceder a él de manera directa.
+
+// HTML de referencia
+//<div id="app">
+//  <p id="parrafo1">Hola Mundo</p>
+//</div>
+
+// JavaScript
+let div = document.getElementById("app");
+let parrafo1 = document.getElementById("parrafo1");
+console.log(div.innerHTML); // Muestra el contenido HTML dentro del div
+console.log(parrafo1.innerHTML); // Muestra "Hola Mundo"
+
+
+//2. getElementsByClassName() Este método es útil cuando se necesita trabajar con múltiples elementos que comparten una misma clase, como cuando se aplican estilos o se realizan manipulaciones a un grupo de elementos.
+
+// HTML de referencia
+//<ul>
+//  <li class="paises">AR</li><li class="paises">CL</li><li class="paises">UY</li>
+//</ul>
+
+// JavaScript
+let paises = document.getElementsByClassName("paises");
+console.log(paises[0].innerHTML); // Muestra "AR"
+console.log(paises[1].innerHTML); // Muestra "CL"
+console.log(paises[2].innerHTML); // Muestra "UY"
+
+
+//3. getElementsByTagName() Este método es conveniente cuando se desea acceder a todos los elementos de un tipo particular, como todos los <div>, <p>, o <span> en un documento.
+
+// HTML de referencia
+//<div>
+//  <div>CONTENEDOR 2</div><div>CONTENEDOR 3</div>
+//</div>
+
+// JavaScript
+let contenedores = document.getElementsByTagName("div");
+console.log(contenedores[0].innerHTML); // Muestra "CONTENEDOR 2"
+console.log(contenedores[1].innerHTML); // Muestra "CONTENEDOR 3"
+
+
+
+
+
+let contenedoresTag = document.getElementsByTagName("div");
+console.log(contenedoresTag);
+
+
+
+
+//MÉTODO MODERNO DE ACCESO - Y BUSCAR SELECTALL
+//querySelectorAll() El método querySelectorAll() es similar a querySelector(), pero en lugar de devolver solo el primer elemento coincidente, devuelve una lista estática de todos los elementos que coinciden con los selectores CSS especificados. La lista devuelta es de tipo NodeList, que puede ser iterada con métodos como forEach.
+
+
+//DOM y Eventos en JavaScript
+let contenido = document.getElementById(`contenido`); //Con este modifico todo lo que se encuentre bajo el dominio de  "contenido"
+contenido.innerHTML = "<h1>Bienvenido a Javascript</h1><p>Esto es un parrafo creado desde Javascript</p>";
+
+let titulo = document.querySelector(`h1`); //Esto para poder modificar solo una parte d eun bloque que se haya creado. No todo sino solo uno. En este caso, el título. 
+titulo.innerText = `Bienvenidos a mi nuevo título`;
+
+titulo.className = `nuevo-clase`; //Esto sirve para agregar algo a un bloque, sin tener que ingresar a HTML. 
+
+
+
+//Ejemplo para combinar fácilmente texto estático con valores dinámicos.
+const nombret = "Juan";
+const edadd = 30;
+
+const contenedorr = document.getElementById('info');
+
+contenedorr.innerHTML = `
+  <h2>Información del Usuario</h2>
+  <p>Nombre: ${nombret}</p>
+  <p>Edad: ${edadd}</p>
+`;
+
+
+
+//Incluir Expresiones Complejas
+
+const productoss = [
+  { nombree: "Arroz", precioo: 125 },
+  { nombree: "Fideos", precioo: 70 },
+  { nombree: "Pan", precioo: 50 }
+];
+
+const contenedor = document.getElementById('productos');
+
+contenedor.innerHTML = `
+<h2>Lista de Productos</h2>
+<ul>
+    ${productoss.map(producto => `<li>${producto.nombree} - $${producto.precioo}</li>`).join('')}
+</ul>
+`;
 
 
 

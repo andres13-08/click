@@ -1,45 +1,48 @@
-//Esto es para que en una función, se pueda llamar otra función.
-function mayorQue(n) {
-    return function(m) {
-        return m > n;
-    }
-}
+let contenedor = document.getelementById('unico');
+console.log(contenedor);
 
-let mayorQueDiez = mayorQue(10);
+//Esto es para que en una función, se pueda llamar otra función.
+//function mayorQue(n) {
+//    return function(m) {
+//        return m > n;
+//    }
+//}
+
+//let mayorQueDiez = mayorQue(10);
 
 //console.log(mayorQueDiez(12)); // true
 //console.log(mayorQueDiez(8));  // false
 
-let mayorQueCuarenta = mayorQue(40);
+//let mayorQueCuarenta = mayorQue(40);
 
 //console.log(mayorQueCuarenta(72)); // true
 //console.log(mayorQueCuarenta(8));  // false
 
-let numbers = [1,2,3,4,5];
+//let numbers = [1,2,3,4,5];
 
-const mostrar = (array, funcion) => {
-    for (const elem of array) { //Por cada elemento del array, se ejecutará la "funcion"  
-        funcion(elem);
-    }};
-mostrar(numbers, console.log);
+//const mostrar = (array, funcion) => {
+//    for (const elem of array) { //Por cada elemento del array, se ejecutará la "funcion"  
+//        funcion(elem);
+//    }};
+//mostrar(numbers, console.log);
 
-let mayorQueTres = (m) => {
-    let resultado =  m > 3;
-    console.log(resultado); 
-}
-mostrar(numbers, mayorQueTres);
+//let mayorQueTres = (m) => {
+//    let resultado =  m > 3;
+//    console.log(resultado); 
+//}
+//mostrar(numbers, mayorQueTres);
 
 //FOR EACH: En este caso, por cada número se está pidiendo que me lo muestra en consola. La traducción por eso dice "for each" - "por cada uno". Ejemplo, se hace un for each al array de un carro de compras, y por cada produto, se debe mostrar, ejemplo, dentro de una caja. 
-let numbersforeach = [1,2,3,4,5];
-numbersforeach.forEach((num)=>{
-    console.log(num);
-})
+//let numbersforeach = [1,2,3,4,5];
+//numbersforeach.forEach((num)=>{
+//    console.log(num);
+//})
 
 //FIND: Para encontrar un producto según nombre, precios, etc. Devuelve el primer elemento que cumpla la condición que le entregue. 
-let productos = [
-    {id:1,nombre: "remera", precio:1000},
-    {id:2,nombre: "pantalón", precio:3000},
-];
+//let productos = [
+//    {id:1,nombre: "remera", precio:1000},
+//    {id:2,nombre: "pantalón", precio:3000},
+//];
 
 //let prodEncontrado = productos.find((prod) => prod.precio > 1500);
 //console.log(prodEncontrado);
@@ -57,16 +60,15 @@ let productos = [
 
 
 //MAP: Crea un nuevo array con todos los elementos del original, pero transofrmado. Transforma el array que le estamos pasando. Esto se puede usar cuando hay productos con recargo por ubicación, o en el caso de sumarle el IVA. 
-let prodsCantidad = productos.map((prod) => {
-    return {id:prod.id,
-        nombre:prod.nombre,
-        precio:prod.precio,
-        cantidad: 0
-    }
-})
+//let prodsCantidad = productos.map((prod) => {
+//    return {id:prod.id,
+//        nombre:prod.nombre,
+//        precio:prod.precio,
+//        cantidad: 0
+//    }
+//})
 
-console.log(prodsCantidad);
-
+//console.log(prodsCantidad);
 
 
 
@@ -80,12 +82,11 @@ console.log(prodsCantidad);
 //<div id="app">
 //  <p id="parrafo1">Hola Mundo</p>
 //</div>
-
 // JavaScript
-let div = document.getElementById("app");
-let parrafo1 = document.getElementById("parrafo1");
-console.log(div.innerHTML); // Muestra el contenido HTML dentro del div
-console.log(parrafo1.innerHTML); // Muestra "Hola Mundo"
+//let div = document.getElementById("app");
+//let parrafo1 = document.getElementById("parrafo1");
+//console.log(div.innerHTML); // Muestra el contenido HTML dentro del div
+//console.log(parrafo1.innerHTML); // Muestra "Hola Mundo"
 
 
 //2. getElementsByClassName() Este método es útil cuando se necesita trabajar con múltiples elementos que comparten una misma clase, como cuando se aplican estilos o se realizan manipulaciones a un grupo de elementos.
@@ -96,10 +97,10 @@ console.log(parrafo1.innerHTML); // Muestra "Hola Mundo"
 //</ul>
 
 // JavaScript
-let paises = document.getElementsByClassName("paises");
-console.log(paises[0].innerHTML); // Muestra "AR"
-console.log(paises[1].innerHTML); // Muestra "CL"
-console.log(paises[2].innerHTML); // Muestra "UY"
+//let paises = document.getElementsByClassName("paises");
+//console.log(paises[0].innerHTML); // Muestra "AR"
+//console.log(paises[1].innerHTML); // Muestra "CL"
+//console.log(paises[2].innerHTML); // Muestra "UY"
 
 
 //3. getElementsByTagName() Este método es conveniente cuando se desea acceder a todos los elementos de un tipo particular, como todos los <div>, <p>, o <span> en un documento.
@@ -110,17 +111,9 @@ console.log(paises[2].innerHTML); // Muestra "UY"
 //</div>
 
 // JavaScript
-let contenedores = document.getElementsByTagName("div");
-console.log(contenedores[0].innerHTML); // Muestra "CONTENEDOR 2"
-console.log(contenedores[1].innerHTML); // Muestra "CONTENEDOR 3"
-
-
-
-
-
-let contenedoresTag = document.getElementsByTagName("div");
-console.log(contenedoresTag);
-
+//let contenedores = document.getElementsByTagName("div");
+//console.log(contenedores[0].innerHTML); // Muestra "CONTENEDOR 2"
+//console.log(contenedores[1].innerHTML); // Muestra "CONTENEDOR 3"
 
 
 
@@ -156,19 +149,19 @@ contenedorr.innerHTML = `
 //Incluir Expresiones Complejas
 
 const productoss = [
-  { nombree: "Arroz", precioo: 125 },
-  { nombree: "Fideos", precioo: 70 },
-  { nombree: "Pan", precioo: 50 }
+  { nombree: "Clases", precioo: 50.000 },
+  { nombree: "Transporte", precioo: 70.000 },
+  { nombree: "Servicios", precioo: 45.000 }
 ];
 
-const contenedor = document.getElementById('productos');
+//const contenedor = document.getElementById('productos');
 
-contenedor.innerHTML = `
-<h2>Lista de Productos</h2>
-<ul>
-    ${productoss.map(producto => `<li>${producto.nombree} - $${producto.precioo}</li>`).join('')}
-</ul>
-`;
+//contenedor.innerHTML = `
+//<h2>Lista de Productos</h2>
+//<ul>
+//    ${productoss.map(producto => `<li>${producto.nombree} - $${producto.precioo}</li>`).join('')}
+//</ul>
+//`;
 
 
 
@@ -602,9 +595,9 @@ console.log(`Total de productos: ${carritoAlmacenado.items.length}`);
 
 //let matriz = [
 
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+//    [1, 2, 3],
+//    [4, 5, 6],
+//    [7, 8, 9]
 
 //]
 
@@ -793,3 +786,4 @@ let nombre = "Raul";
 let edad = 40;
 
 localStorage.setItem("nombreDeLaPersona", nombre)
+

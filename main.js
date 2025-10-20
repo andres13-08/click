@@ -1,6 +1,3 @@
-let contenedor = document.getelementById('unico');
-console.log(contenedor);
-
 //Esto es para que en una función, se pueda llamar otra función.
 //function mayorQue(n) {
 //    return function(m) {
@@ -133,16 +130,16 @@ titulo.className = `nuevo-clase`; //Esto sirve para agregar algo a un bloque, si
 
 
 //Ejemplo para combinar fácilmente texto estático con valores dinámicos.
-const nombret = "Juan";
-const edadd = 30;
+//const nombret = "Juan";
+//const edadd = 30;
 
-const contenedorr = document.getElementById('info');
+//const contenedorr = document.getElementById('info');
 
-contenedorr.innerHTML = `
-  <h2>Información del Usuario</h2>
-  <p>Nombre: ${nombret}</p>
-  <p>Edad: ${edadd}</p>
-`;
+//contenedorr.innerHTML = `
+//  <h2>Información del Usuario</h2>
+//  <p>Nombre: ${nombret}</p>
+//  <p>Edad: ${edadd}</p>
+//`;
 
 
 
@@ -787,3 +784,5 @@ let edad = 40;
 
 localStorage.setItem("nombreDeLaPersona", nombre)
 
+let contenedor = document.getelementById('unico');
+console.log(contenedor);

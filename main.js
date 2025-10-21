@@ -1,7 +1,34 @@
+const url = `https://jsonplaceholder.typicode.com/posts`; //ESTO ES UNA CONEXIÓN A API PARA ALOJAR DATOS DE MANERA REMOTA. Si se cambia la url, se cambia el sitio a lo cual se va a conectar. Si se demora en dar una respuesta, se demora todo el resto del código.
+
+/*fetch(url) //De esta manera, podemos saber si está conectado a la API. Se puede ver en consola. Se hace una consulta a la API y me debe responder
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log("Ocurrió un error", error));*/
+
+async function getData () { //Con esto, puedo consultar la API. Si la respuoesta es correcta, enbtinces va a traer lo que está en TRY, pero sino, arroja mensaje de "error".
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log("datos recibidos", data);
+    } catch (error) {
+        console.log("Hay un error en el código...pilas¡¡", error);
+    } finally {
+        console.log("Esto siempre se ejecuta");
+    }
+}
+getData();
+//Acá quedo con la duda, y esto ¿cómo lo puedo aplicar a mi código? 
+
+
+
+
+
+
+
 let boton = document.getElementById("boton");
 
 boton.addEventListener("click", function(){
-    alert("El botón fue desparado"); //Esto para que al usuario se le muestre un pop up con un mensaje.
+    alert("El botón fue disparado"); //Esto para que al usuario se le muestre un pop up con un mensaje.
 
 });
 
@@ -63,6 +90,8 @@ const servicios = [
 //console.log(contenedores);
 //console.log(div);
 
+
+//ESTO ES PARA CREAR LOS PRODUCTOS EN EL HTML
 let contenedor = document.querySelector("#contenedor");
 servicios.forEach((fruta) => {
     let div = document.createElement("div");
@@ -75,6 +104,8 @@ servicios.forEach((fruta) => {
     contenedor.appendChild(div);
 });
 
+
+//ESTOPARA AGREGAR LOS PRODUCTOS AL CARRITO
 let btns = document.querySelectorAll(".agregarAlCarrito");
 btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {

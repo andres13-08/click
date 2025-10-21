@@ -784,5 +784,5 @@ let edad = 40;
 
 localStorage.setItem("nombreDeLaPersona", nombre)
 
-let contenedor = document.getelementById('unico');
-console.log(contenedor);
+//let contenedor = document.getElementById('unico');
+//console.log(contenedor);

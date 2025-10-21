@@ -1,3 +1,134 @@
+let boton = document.getElementById("boton");
+
+boton.addEventListener("click", function(){
+    alert("El botón fue desparado"); //Esto para que al usuario se le muestre un pop up con un mensaje.
+
+});
+
+let input = document.getElementById("input");
+input.addEventListener("input", function(){
+    console.log("El usuario escribió: " + this.value); //Con esto puedo ver en tiempo real qué está escribiendo el usuario.
+    //console.log("Click"); Una segunda manera para poder ver en consola es esta. 
+});
+
+let usuario = document.getElementById("select");
+usuario.addEventListener("change", function(){
+    console.log("El usuario seleccionó: "+ this.value);
+})
+
+//const frutas = ["manzana", "pera", "banana", "naranja", "fresa", "kiwi", "mango"];
+
+let carrito= []
+
+const servicios = [
+    {id:1, nombre: "Servicios del hogar",precio: 500},
+    {id:2, nombre: "Servicios educativos",precio: 600},
+    {id:3, nombre: "Servicios automoviles",precio: 700},
+    {id:4, nombre: "Servicios de compañía",precio: 800},
+    ]
+//Comentamos la función que carga el DOM con el array de servicios
+/*const cargarDOM = (servicios) => {
+    let titulo = document.getElementById("titulo");
+    let listado = document.getElementById("listado");
+
+    titulo.innerText = "www.mandaclick.com";
+
+    //Recorremos el array de servicios y creamos un li para cada uno de ellos
+    servicios.forEach((fruta) => {
+        //Creamos la etiqueta li
+        let div = document.createElement("div");
+
+        //Por cada fruta, se va a crear un nuevo li
+        div.innerHTML = `
+        <span class="general">Código: ${fruta.id}</span>
+        <h3 class="general">Nombre: ${fruta.nombre}</h3>
+        <p class="general">Precio: ${fruta.precio}</p>
+        `;
+
+        //Colocamos el li en el ul
+        listado.appendChild(div);
+    });  
+};*/
+
+//Llamamos a la función con el array de servicios
+//cargarDOM(servicios);
+
+//let contenedor = document.querySelector(".contenedor");
+//let contenedores = document.querySelectorAll("#contenedores");
+//let titulo = document.querySelector("#titulo");
+//let div = document.querySelectorAll("div");
+
+//console.log(contenedor);
+//console.log(titulo);
+//console.log(contenedores);
+//console.log(div);
+
+let contenedor = document.querySelector("#contenedor");
+servicios.forEach((fruta) => {
+    let div = document.createElement("div");
+    div.innerHTML = `
+    <span class="general">Código: ${fruta.id}</span>
+    <h3 class="general">Nombre: ${fruta.nombre}</h3>
+    <p class="general">Precio: ${fruta.precio}</p>
+    <button class= "agregarAlCarrito" data-id="${fruta.id}">Agregar al carrito</butoon> 
+    `;
+    contenedor.appendChild(div);
+});
+
+let btns = document.querySelectorAll(".agregarAlCarrito");
+btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        let servicioEncontrado = servicios.find((fruta=>fruta.id == e.target.dataset.id));    
+        carrito.push(servicioEncontrado);
+        console.log(carrito);  
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+//Ejemplo Práctico:imagina que tienes un sitio web de comercio electrónico y necesitas almacenar la información del carrito de compras del usuario entre sesiones. Podrías almacenar esta información en localStorage como un string JSON y recuperarlo cada vez que el usuario visite la página.
+//Supongamos que este es el carrito de compras del usuario
+/*
+const carrito = {
+    items: [
+        { id: 1, producto: "Libro", cantidad: 2, precio: 15.00 },
+        { id: 2, producto: "Lápiz", cantidad: 10, precio: 1.50 }
+    ]
+};
+*/
+
+// Convertimos el objeto carrito en una cadena JSON y lo almacenamos
+// localStorage.setItem('carrito', JSON.stringify(carrito));
+
+// Recuperamos la cadena JSON del almacenamiento y la convertimos de nuevo a un objeto JavaScript
+// const carritoAlmacenado = JSON.parse(localStorage.getItem('carrito'));
+
+// Ahora podemos acceder y manipular los datos del carrito como un objeto JavaScript
+// console.log(`Total de productos: ${carritoAlmacenado.items.length}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Esto es para que en una función, se pueda llamar otra función.
 //function mayorQue(n) {
 //    return function(m) {
@@ -114,7 +245,7 @@
 
 
 
-//MÉTODO MODERNO DE ACCESO - Y BUSCAR SELECTALL
+//MÉTODO MODERNO DE ACCESO - Y BUSCAR SELECT ALL
 //querySelectorAll() El método querySelectorAll() es similar a querySelector(), pero en lugar de devolver solo el primer elemento coincidente, devuelve una lista estática de todos los elementos que coinciden con los selectores CSS especificados. La lista devuelta es de tipo NodeList, que puede ser iterada con métodos como forEach.
 
 
@@ -122,8 +253,8 @@
 let contenido = document.getElementById(`contenido`); //Con este modifico todo lo que se encuentre bajo el dominio de  "contenido"
 contenido.innerHTML = "<h1>Bienvenido a Javascript</h1><p>Esto es un parrafo creado desde Javascript</p>";
 
-let titulo = document.querySelector(`h1`); //Esto para poder modificar solo una parte d eun bloque que se haya creado. No todo sino solo uno. En este caso, el título. 
-titulo.innerText = `Bienvenidos a mi nuevo título`;
+//let titulo = document.querySelector(`h1`); //Esto para poder modificar solo una parte d eun bloque que se haya creado. No todo sino solo uno. En este caso, el título. 
+//titulo.innerText = `Bienvenidos a mi nuevo título`;
 
 titulo.className = `nuevo-clase`; //Esto sirve para agregar algo a un bloque, sin tener que ingresar a HTML. 
 
@@ -244,23 +375,7 @@ if (rol === 1) { //El simbolo de acá es el que se reemplaza, dependiendo de si 
     }
 }
 
-//Ejemplo Práctico: Imagina que tienes un sitio web de comercio electrónico y necesitas almacenar la información del carrito de compras del usuario entre sesiones. Podrías almacenar esta información en localStorage como un string JSON y recuperarlo cada vez que el usuario visite la página.
-//Supongamos que este es el carrito de compras del usuario
-const carrito = {
-    items: [
-        { id: 1, producto: "Libro", cantidad: 2, precio: 15.00 },
-        { id: 2, producto: "Lápiz", cantidad: 10, precio: 1.50 }
-    ]
-};
 
-// Convertimos el objeto carrito en una cadena JSON y lo almacenamos
-localStorage.setItem('carrito', JSON.stringify(carrito));
-
-// Recuperamos la cadena JSON del almacenamiento y la convertimos de nuevo a un objeto JavaScript
-const carritoAlmacenado = JSON.parse(localStorage.getItem('carrito'));
-
-// Ahora podemos acceder y manipular los datos del carrito como un objeto JavaScript
-console.log(`Total de productos: ${carritoAlmacenado.items.length}`);
 
 
 

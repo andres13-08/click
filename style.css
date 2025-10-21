@@ -1,4 +1,12 @@
-.nuevo-clase {
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.titulo1 {
     text-align: center;
-    font-size: 40px;
+}
+
+.general {
+    margin: 10px;
 }

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ej. JS</title>
+    <link rel="stylesheet" href="style.css">
+<!--
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -14,6 +16,7 @@
         color: #555;
     }
 </style>
+-->
 </head>
 <body>
     <h1 id="saludo">¡Hola!</h1>
@@ -32,28 +35,37 @@
         <div>CONTENEDOR 2</div><div>CONTENEDOR 3</div>
     </div>-->
 
+    <div id="contenedor">Contenedor final</div>
+    <button>Agregar al carrito</button>
+
+    <div class="contenedor">Contenedor 1</div>
+    <div class="contenedor">Contenedor 2</div>
+
     <div id="productos"></div>
 
     <div id="contenido">
-        <h1>Bienvenidos a HTML</h1>
-        <p>Esto es un parrafo desde HTML</p>
+        <h1 class="titulo1">Bienvenidos a HTML</h1>
+        <p class="titulo1">Esto es un parrafo desde HTML</p>
     </div>
 
-    <button id="boton">Haz click</button>
 
-    <input type="text" id="input">
 
     <select name="" id="select">
-        <option value="Proveedor">Proveedor</option>
-        <option value="Cliente">Cliente</option>
-        <option value="Empleado">Empleado</option>
+        <option value="Proveedor">Nuevo Proveedor</option>
+        <option value="Cliente">Socio Proveedor</option>
+        <option value="Empleado">Nuevo Cliente </option>
+        <option value="Empleado">Socio Cliente</option>
     </select>
 
+    <button id="boton">Ingresar</button>
+    <input type="text" id="input">
+
     <button id="guardarNombre">Guardar Nombre</button>
-
     <button id="eliminarNombre">Eliminar Nombre</button>
-
     <button id="recuperarNombre">Recuperar Nombre</button>
+
+    <h1 id="titulo"></h1> 
+    <div id="listado"></div>
 
     <!--
     <div id="unico">

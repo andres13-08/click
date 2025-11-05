@@ -19,7 +19,10 @@
 -->
 </head>
 <body>
-    <h1 id="saludo">¡Hola!</h1>
+    <!-- Importar SweetAlert2 -->
+    
+    <h1 id="saludo">CLICK - TU PROVEEDOR DE CONFIANZA</h1>
+    <div id="contenedor"></div>
 
     <!--<div id="app">
         <p id="parrafo1">Hola Mundo</p>
@@ -38,16 +41,14 @@
 
 
     <div id="contenido">
-        <h1 class="titulo1">Bienvenidos a HTML</h1>
-        <p class="titulo1">Esto es un parrafo desde HTML</p>
+        <h1 class="titulo1">Bienvenidos a Click</h1>
+        <p class="titulo1">Bienvenido al portal que te facilita tus pendientes del hogar. Ingresa a tu perfil para continuae navegando.</p>
     </div>
 
-    <div id="contenedor">Contenedor final</div>
+    <!-- <div id="contenedor">Contenedor final</div>-->
 
-    <div class="contenedor">Contenedor 1</div>
-    <div class="contenedor">Contenedor 2</div>
-
-    <div id="productos"></div>
+    <!--<div class="contenedor">Contenedor 1</div>-->
+    <!--<div class="contenedor">Contenedor 2</div>-->
 
     <select name="" id="select">
         <option value="Proveedor">Nuevo Proveedor</option>
@@ -56,12 +57,41 @@
         <option value="Empleado">Socio Cliente</option>
     </select>
 
-    <button id="boton">Ingresar</button>
+        <button id="boton">Ingresar</button>
     <input type="text" id="input">
+    
 
     <button id="guardarNombre">Guardar Nombre</button>
     <button id="eliminarNombre">Eliminar Nombre</button>
     <button id="recuperarNombre">Recuperar Nombre</button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <button id="btn">Eliminar productos agregados</button>
+
+    <script>
+    const btn = document.getElementById('btn');
+
+    
+
+    btn.addEventListener('click', () => {
+    Swal.fire({
+        title: '¿Está seguro de eliminar el producto?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, seguro',
+        cancelButtonText: 'No, no quiero'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Borrado!',
+            icon: 'success',
+            text: 'El archivo ha sido borrado'
+          })
+        }
+      })
+    });
+  </script>
 
     <h1 id="titulo"></h1> 
     <div id="listado"></div>
@@ -70,7 +100,12 @@
         Hola Mundo
     </div>-->
 
+    
+
+    <div id="productos"></div>
 
     <script src="main.js"></script>
+
+    
 </body>
 </html>

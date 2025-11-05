@@ -282,7 +282,7 @@ const carrito = {
 
 //DOM y Eventos en JavaScript
 let contenido = document.getElementById(`contenido`); //Con este modifico todo lo que se encuentre bajo el dominio de  "contenido"
-contenido.innerHTML = "<h1>Bienvenido a Javascript</h1><p>Esto es un parrafo creado desde Javascript</p>";
+contenido.innerHTML = "<h1>No tengo cuenta activa, pero quiero crearla.</h1><p>Por favor diligencia los siguientes datos para poder crear tu cuenta:</p>";
 
 //let titulo = document.querySelector(`h1`); //Esto para poder modificar solo una parte d eun bloque que se haya creado. No todo sino solo uno. En este caso, el título. 
 //titulo.innerText = `Bienvenidos a mi nuevo título`;

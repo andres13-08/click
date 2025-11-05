@@ -1,12 +1,100 @@
-* {
-    padding: 0;
-    margin: 0;
+/* --- ESTILOS GENERALES DE LA PÁGINA --- */
+body {
+    /* Fuente moderna y limpia */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
 }
 
-.titulo1 {
+h1 {
+    color: #007bff; /* Azul primario */
     text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
 }
 
+/* --- ESTILOS DEL CONTENEDOR DE SERVICIOS (Grid/Flex) --- */
+#contenedor {
+    /* Usamos Flexbox para distribuir las tarjetas */
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas salten a la siguiente línea */
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    padding: 20px 0;
+}
+
+/* --- ESTILOS DE CADA TARJETA DE SERVICIO --- */
+#contenedor > div {
+    /* Estilo base de la tarjeta */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+    width: 250px; /* Ancho fijo para las tarjetas */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s; /* Animación al pasar el mouse */
+}
+
+#contenedor > div:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* --- ESTILOS DE LOS ELEMENTOS DE LA TARJETA --- */
 .general {
-    margin: 10px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+h3.general {
+    color: #333;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+p.general {
+    color: #666;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* --- ESTILO DEL BOTÓN "Agregar al carrito" --- */
+.agregarAlCarrito {
+    background-color: #28a745; /* Verde para acción de agregar */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    margin-top: auto; /* Empuja el botón hacia la parte inferior de la tarjeta */
+}
+
+.agregarAlCarrito:hover {
+    background-color: #218838;
+}
+
+/* --- ESTILOS PARA LOS CONTROLES INFERIORES (BOTONES/SELECT) --- */
+#boton, #input, #select, 
+button[id^="guardarNombre"], button[id^="eliminarNombre"], button[id^="recuperarNombre"], 
+button[id="ingresar"] {
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #e9ecef;
+}
+
+button[id="ingresar"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
 }
